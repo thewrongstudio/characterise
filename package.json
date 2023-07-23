@@ -2,8 +2,9 @@
   "name": "characterise",
   "version": "0.0.1",
   "description": "A character builder for a bunch of TTRPGs.",
+  "private": "true",
   "scripts": {
-    "build": "babel src --delete-dir-on-start -d build"
+    "build": "webpack --mode=development"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,10 @@
   "devDependencies": {
     "@babel/cli": "^7.22.9",
     "@babel/core": "^7.22.9",
-    "@babel/preset-react": "^7.22.5"
+    "@babel/preset-react": "^7.22.5",
+    "babel-loader": "^9.1.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "react": "^18.2.0",

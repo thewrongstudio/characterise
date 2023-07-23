@@ -1,1 +1,5 @@
-console.log(<div><p>hi</p><span>there</span></div>)
+import React from 'react'
+import { createRoot } from 'react-dom/client'
+
+const root = createRoot(document.getElementById('app'))
+root.render(<h1>Hello, world</h1>)
