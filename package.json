@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A character builder for a bunch of TTRPGs.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --delete-dir-on-start -d build"
   },
   "repository": {
     "type": "git",
@@ -12,5 +12,14 @@
   "bugs": {
     "url": "https://github.com/thewrongstudio/characterise/issues"
   },
-  "homepage": "https://github.com/thewrongstudio/characterise#readme"
+  "homepage": "https://github.com/thewrongstudio/characterise#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-react": "^7.22.5"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
