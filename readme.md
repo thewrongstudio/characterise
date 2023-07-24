@@ -14,3 +14,4 @@ A character builder for a bunch of different TTRPGs.
 - See if we can make the webpack config files es modules?
 - Work out what the ?: in the babel loader test regex is.
 - CSS
+- Those redirect alias name things so we don't always need to do relative imports.
