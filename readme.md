@@ -4,5 +4,13 @@ A character builder for a bunch of different TTRPGs.
 
 ## To Do
 
-- Hot reloading hosted development setup.
-- Look into https://webpack.js.org/guides/output-management/#setting-up-htmlwebpackplugin or otherwise revise the way the public folder is built.
+- Smarter bundling and chunks and whatnot
+  - https://webpack.js.org/guides/output-management/#setting-up-htmlwebpackplugin
+  - https://webpack.js.org/guides/code-splitting
+  - https://webpack.js.org/guides/asset-management for any images
+  - This should remove the need for the copy-webpack-plugin.
+- Typescript
+- Linting
+- See if we can make the webpack config files es modules?
+- Work out what the ?: in the babel loader test regex is.
+- CSS

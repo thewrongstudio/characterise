@@ -3,9 +3,8 @@ const path = require('path');
 module.exports = {
   entry: './src/index.jsx',
   output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'public/static/js'),
-    clean: true
+    filename: 'bundle.js',
+    clean: true,
   },
   module: {
     rules: [
@@ -16,11 +15,11 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-react']
-            ]
-          }
-        }
-      }
-    ]
-  }
+              ['@babel/preset-react'],
+            ],
+          },
+        },
+      },
+    ],
+  },
 };
