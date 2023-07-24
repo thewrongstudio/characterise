@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   entry: './src/index.jsx',
   output: {
@@ -29,4 +27,4 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   }
-};
+}
