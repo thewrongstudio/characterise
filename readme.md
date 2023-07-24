@@ -16,3 +16,4 @@ A character builder for a bunch of different TTRPGs.
 - Those redirect alias name things so we don't always need to do relative imports.
 - See if I can ensure that duplicate css files (say, for multiple instances of the same component) aren't included multiple times. I think this is the default, but it would be good to check.
 - Routing.
+- Tests.

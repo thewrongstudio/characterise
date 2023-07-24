@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
     clean: true,
@@ -7,16 +7,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(?:jsx)$/,
+        test: /src\/.*\.(tsx?)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              ['@babel/preset-react'],
-            ],
-          },
-        },
+        use: 'ts-loader',
       },
       {
         test: /\.css$/i,
@@ -25,6 +18,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   }
 }
