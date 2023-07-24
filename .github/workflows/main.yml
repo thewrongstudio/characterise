@@ -24,3 +24,15 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Fix permissions for github pages
+        run: |
+          chmod -c -R +rX "_site/" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
+
+      - name: Compress build for github pages
+        run: cd build && tar -czvf ../build.tar.gz *
+
+      - name: Upload github pages artifact
+        uses: actions/upload-pages-artifact@v2

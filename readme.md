@@ -15,3 +15,4 @@ A character builder for a bunch of different TTRPGs.
 - Routing.
 - Tests.
 - Github actions / pages.
+- See if I can have pull requests optionally deploy to a different dev domain.
