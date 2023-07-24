@@ -31,8 +31,10 @@ jobs:
             echo "::warning title=Invalid file permissions automatically fixed::$line"
           done
 
-      - name: Compress build for github pages
-        run: cd build && tar -czvf ../build.tar.gz *
+      # - name: Compress build for github pages
+      #   run: cd build && tar -czvf ../build.tar.gz *
 
       - name: Upload github pages artifact
         uses: actions/upload-pages-artifact@v2
+        with:
+          path: build
