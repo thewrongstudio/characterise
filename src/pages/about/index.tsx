@@ -5,7 +5,10 @@ import Page from '../../components/page'
 
 export default function About() {
   return <Page>
-    <p>A character sheet builder for a bunch of TTRPGs.</p>
+    <div>
+      <p>A character sheet builder for a bunch of TTRPGs.</p>
+      <p>Eventually. Hopefully.</p>
+    </div>
     <p><Link to="/">Home</Link>.</p>
   </Page>
 }
