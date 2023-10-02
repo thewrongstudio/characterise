@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "lint": "npx eslint '**/*.{js,jsx}'",
-    "lint:fix": "npx eslint --fix '**/*.{js,jsx}'"
+    "lint": "eslint '**/*.{ts,tsx,js,jsx}'",
+    "lint:fix": "eslint --fix '**/*.{ts,tsx,js,jsx}'"
   },
   "repository": {
     "type": "git",
