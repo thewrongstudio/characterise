@@ -8,8 +8,7 @@ export default function Page({children}: {children: React.ReactNode}) {
     <header>
       <div className='menu-container'>
         <Link to="/" className="logo">Characterise</Link>
-        <Link to="/">New</Link>
-        <Link to="/">Open</Link>
+        <Link to="/characters">Characters</Link>
       </div>
     </header>
 

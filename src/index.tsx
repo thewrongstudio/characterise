@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 
 import Home from './pages/home'
-import About from './pages/about'
+import Characters from './pages/characters'
 import NotFound from './pages/not-found'
 
 import './styles.css'
@@ -25,8 +25,8 @@ const router = createBrowserRouter([
     errorElement: <NotFound/>,
   },
   {
-    path: '/about',
-    element: <About/>,
+    path: '/characters',
+    element: <Characters/>,
   },
 ])
 
