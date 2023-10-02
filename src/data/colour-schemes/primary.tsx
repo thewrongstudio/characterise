@@ -1,19 +1,19 @@
 import ColourScheme from '@/models/colour-scheme'
 
 const primaryColourScheme: ColourScheme = {
-  backdropColour: 'gray',
-  alignedTextColour: 'darkorange',
-  unalignedTextColour: 'pink',
+  backdropColour: '#cda26a',
+  alignedTextColour: '#5D3F1D',
+  unalignedTextColour: '#CA9268',
   primaryBackgroundColour: {
-    colour: 'papayawhip',
+    colour: '#e8c79c',
     aligned: true,
   },
   secondaryBackgroundColour: {
-    colour: 'midnightblue',
+    colour: '#774C2A',
     aligned: false,
   },
   buttonBackgroundColour: {
-    colour: 'cornsilk',
+    colour: '#89530F',
     aligned: true,
   },
 }
