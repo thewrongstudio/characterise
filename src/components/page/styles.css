@@ -10,9 +10,7 @@
   flex-grow: 1;
   background-color: var(--primary-background-colour);
   color: var(--primary-text-colour);
-  width: 70%;
-  max-width: 900px;
-  margin: auto;
+  padding: 1rem;
 }
 
 .page header, .page footer {
@@ -20,8 +18,37 @@
   color: var(--secondary-text-colour);
 }
 
+.page .content, .page .menu-container {
+  width: 70%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.page .menu-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 3rem;
+}
+
+.page .menu-container a {
+  color: var(--secondary-text-colour);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding-right: 1rem;
+}
+
+.page footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
+}
+
 @media screen and (max-width: 800px) {
-  .page .content {
+  .page .content, .page .menu-container {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
