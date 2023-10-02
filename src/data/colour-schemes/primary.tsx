@@ -1,11 +1,11 @@
 import ColourScheme from '@/models/colour-scheme'
 
 const primaryColourScheme: ColourScheme = {
-  backdropColour: '#cda26a',
+  backdropColour: '#E7CF9A',
   alignedTextColour: '#5D3F1D',
   unalignedTextColour: '#CA9268',
   primaryBackgroundColour: {
-    colour: '#e8c79c',
+    colour: '#FFE7B3',
     aligned: true,
   },
   secondaryBackgroundColour: {
