@@ -15,6 +15,7 @@ const appElement = document.getElementById('app')
 if (appElement === null) {
   throw new Error('Could not find app element to attach React root to.')
 }
+const root = createRoot(appElement)
 
 const router = createBrowserRouter([
   {
@@ -28,5 +29,8 @@ const router = createBrowserRouter([
   },
 ])
 
-const root = createRoot(appElement)
-root.render(<RouterProvider router={router}/>)
+function App() {
+  return <RouterProvider router={router}/>
+}
+
+root.render(<App/>)
