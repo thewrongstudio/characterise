@@ -10,6 +10,7 @@
   background-color: var(--primary-background-colour);
   color: var(--primary-text-colour);
   padding: 1rem;
+  box-shadow: 0px 0px 30px rgba(107, 81, 64, 0.06);
 }
 
 .page header, .page footer {

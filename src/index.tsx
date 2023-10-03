@@ -10,7 +10,7 @@ import Characters from './pages/characters'
 import NotFound from './pages/not-found'
 
 import './styles.css'
-import primaryColourScheme from './data/colour-schemes/primary'
+import primaryColourScheme from './data/colour-schemes/primary-1'
 
 const appElement = document.getElementById('app')
 if (appElement === null) {
