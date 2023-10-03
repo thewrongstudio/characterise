@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { createRoot } from 'react-dom/client'
 import {
   createBrowserRouter,
@@ -10,7 +10,7 @@ import Characters from './pages/characters'
 import NotFound from './pages/not-found'
 
 import './styles.css'
-import primaryColourScheme from './data/colour-schemes/primary-1'
+import ThemeContext, { useTheme } from './contexts/theme-context'
 
 const appElement = document.getElementById('app')
 if (appElement === null) {
@@ -31,20 +31,11 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  const [colourScheme] = useState(primaryColourScheme)
-  useEffect(
-    () => {
-      document.documentElement.style.setProperty('--backdrop-colour', colourScheme.backdropColour)
-      document.documentElement.style.setProperty('--primary-background-colour', colourScheme.primaryBackgroundColour.colour)
-      document.documentElement.style.setProperty('--secondary-background-colour', colourScheme.secondaryBackgroundColour.colour)
-      document.documentElement.style.setProperty('--button-background-colour', colourScheme.buttonBackgroundColour.colour)
-      document.documentElement.style.setProperty('--primary-text-colour', colourScheme.primaryBackgroundColour.aligned ? colourScheme.alignedTextColour : colourScheme.unalignedTextColour)
-      document.documentElement.style.setProperty('--secondary-text-colour', colourScheme.secondaryBackgroundColour.aligned ? colourScheme.alignedTextColour : colourScheme.unalignedTextColour)
-      document.documentElement.style.setProperty('--button-text-colour', colourScheme.buttonBackgroundColour.aligned ? colourScheme.alignedTextColour : colourScheme.unalignedTextColour)
-    },
-    [colourScheme],
-  )
-  return <RouterProvider router={router}/>
+  const themeContextValue = useTheme()
+  
+  return <ThemeContext.Provider value={themeContextValue}>
+    <RouterProvider router={router}/>
+  </ThemeContext.Provider>
 }
 
 root.render(<App/>)
