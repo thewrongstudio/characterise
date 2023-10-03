@@ -21,6 +21,6 @@
 
 .box-links a:hover {
   background-color: var(--secondary-background-colour);
-  color: var(--button-text-colour);
+  color: var(--secondary-text-colour);
   transform: scale(1.05);
 }
