@@ -1,9 +1,9 @@
 # To Do
 
+- add more cats
 - Favicon.
 - Add a no-script element.
 - Development instructions in the readme.
-- Move the link boxes to a component.
 - Add subtle and unsubtle versions of both the text colours to colour schemes.
 - Add selected button background colour to colour schemes.
 
