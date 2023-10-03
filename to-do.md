@@ -6,6 +6,7 @@
 - Development instructions in the readme.
 - Add subtle and unsubtle versions of both the text colours to colour schemes.
 - Add selected button background colour to colour schemes.
+- Switch to using the word "theme" instead of colour scheme.
 
 - Tests.
 
