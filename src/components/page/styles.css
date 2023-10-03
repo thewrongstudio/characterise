@@ -3,7 +3,6 @@
   flex-direction: column;
   min-height: 100vh;
   background-color: var(--backdrop-colour);
-
 }
 
 .page .content {
@@ -19,8 +18,8 @@
 }
 
 .page .content, .page .menu-container {
-  width: 70%;
-  max-width: 900px;
+  width: 80%;
+  max-width: 1400px;
   margin: auto;
 }
 
