@@ -3,8 +3,8 @@ import React from 'react'
 import './styles.css'
 import { Link } from 'react-router-dom'
 
-export default function Page({children}: {children: React.ReactNode}) {
-  return <div className='page'>
+export default function Page({children, className}: {children: React.ReactNode, className?: string}) {
+  return <div className={'page' + (className === undefined ? '' : ' ' + className)}>
     <header>
       <div className='menu-container'>
         <Link to="/" className="logo">C</Link>
