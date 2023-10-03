@@ -24,6 +24,10 @@
   margin: auto;
 }
 
+.page header {
+  font-size: 1.2rem;
+}
+
 .page .menu-container {
   display: flex;
   flex-direction: row;
@@ -36,7 +40,12 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  padding-right: 1rem;
+  padding: 0 1rem;
+}
+
+.page .menu-container a:hover {
+  background-color: var(--button-background-colour);
+  color: var(--button-text-colour);
 }
 
 .page footer {

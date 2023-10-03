@@ -2,8 +2,8 @@ import ColourScheme from '@/models/colour-scheme'
 
 const primaryColourScheme: ColourScheme = {
   backdropColour: '#E7CF9A',
-  alignedTextColour: '#5D3F1D',
-  unalignedTextColour: '#CA9268',
+  alignedTextColour: '#FFE7B3',
+  unalignedTextColour: '#f2c191',
   primaryBackgroundColour: {
     colour: '#FFE7B3',
     aligned: true,
@@ -13,8 +13,8 @@ const primaryColourScheme: ColourScheme = {
     aligned: false,
   },
   buttonBackgroundColour: {
-    colour: '#89530F',
-    aligned: true,
+    colour: '#4C351E',
+    aligned: false,
   },
 }
 
