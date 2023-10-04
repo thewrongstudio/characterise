@@ -7,6 +7,7 @@ import {
 
 import Home from './pages/home'
 import Characters from './pages/characters'
+import Character from './pages/character'
 import Settings from './pages/settings'
 import NotFound from './pages/not-found'
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: '/settings',
     element: <Settings/>,
+  },
+  {
+    path: '/character',
+    element: <Character/>,
   },
 ])
 
