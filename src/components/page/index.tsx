@@ -9,6 +9,7 @@ export default function Page({children, className}: {children: React.ReactNode, 
       <div className='menu-container'>
         <Link to="/" className="logo">C</Link>
         <Link to="/characters">Characters</Link>
+        <Link to="/settings">Settings</Link>
       </div>
     </header>
 

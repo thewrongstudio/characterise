@@ -7,6 +7,7 @@ import {
 
 import Home from './pages/home'
 import Characters from './pages/characters'
+import Settings from './pages/settings'
 import NotFound from './pages/not-found'
 
 import './styles.css'
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: '/characters',
     element: <Characters/>,
+  },
+  {
+    path: '/settings',
+    element: <Settings/>,
   },
 ])
 
