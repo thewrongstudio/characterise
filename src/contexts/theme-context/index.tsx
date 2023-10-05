@@ -3,7 +3,7 @@ import { createContext, useEffect } from 'react'
 import { ThemeName, getTheme } from '@/data/themes'
 import { applyTheme } from '@/models/theme'
 import StorageData from '@/models/storage-data'
-import { StorageDispatch } from '@/reducers/storage-reducer'
+import { StorageDispatch } from '@/hooks/use-storage/storage-reducer'
 
 export type ThemeContextValue = {
   setTheme: (themeName: ThemeName) => void,

@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React from 'react'
 import { createRoot } from 'react-dom/client'
 import {
   createBrowserRouter,
@@ -13,9 +13,7 @@ import Character from './pages/character'
 import Settings from './pages/settings'
 import NotFound from './pages/not-found'
 
-import { defaultStorageData } from './models/storage-data'
-
-import storageReducer from './reducers/storage-reducer'
+import useStorage from './hooks/use-storage'
 
 import './styles.css'
 
@@ -46,7 +44,7 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  const [storageData, storageDispatch] = useReducer(storageReducer, defaultStorageData)
+  const [storageData, storageDispatch] = useStorage()
 
   const themeState = useThemeState(storageData, storageDispatch)
 

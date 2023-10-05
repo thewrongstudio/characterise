@@ -9,7 +9,6 @@
 - Switch to using the word "theme" instead of colour scheme.
 - Reduce css repetition in settings buttons
 - Support changes in the storage modal. Versioned or something.
-- Just make storage a hook that gives back the reducer values, and get rid of all the complicated provider stuff.
 
 - Tests.
 
