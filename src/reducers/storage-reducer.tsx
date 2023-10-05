@@ -6,6 +6,8 @@ export type StorageAction = {
   themeName: ThemeName
 }
 
+export type StorageDispatch = (action: StorageAction) => void
+
 export default function storageReducer(
   state: StorageData,
   action: StorageAction,
