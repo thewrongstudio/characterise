@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { Context, ReactNode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom'
+
+import themeContext, { useThemeState } from './contexts/theme-context'
+import storageContext, { useStorageState } from './contexts/storage-context'
 
 import Home from './pages/home'
 import Characters from './pages/characters'
@@ -12,7 +15,6 @@ import Settings from './pages/settings'
 import NotFound from './pages/not-found'
 
 import './styles.css'
-import ThemeContext, { useTheme } from './contexts/theme-context'
 
 const appElement = document.getElementById('app')
 if (appElement === null) {
@@ -40,12 +42,40 @@ const router = createBrowserRouter([
   },
 ])
 
+type ProviderComponent = ({children}: {children: ReactNode}) => ReactNode
+
+function makeProvider<T>(
+  context: Context<T>,
+  useContextState: () => T,
+): ProviderComponent {
+  function Provider({children}: {children: ReactNode}) {
+    const contextState = useContextState()
+
+    return <context.Provider value={contextState}>{children}</context.Provider>
+  }
+  return Provider
+}
+
+function ContextsProvider({providers, children}: {
+  providers: ProviderComponent[],
+  children: ReactNode,
+}) {
+  let component = children
+  for (const Provider of providers.reverse()) {
+    component = <Provider>{component}</Provider>
+  }
+  return component
+}
+
+const providers: ProviderComponent[] = [
+  makeProvider(storageContext, useStorageState),
+  makeProvider(themeContext, useThemeState),
+]
+
 function App() {
-  const themeContextValue = useTheme()
-  
-  return <ThemeContext.Provider value={themeContextValue}>
+  return <ContextsProvider providers={providers}>
     <RouterProvider router={router}/>
-  </ThemeContext.Provider>
+  </ContextsProvider>
 }
 
 root.render(<App/>)

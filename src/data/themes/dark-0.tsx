@@ -1,4 +1,4 @@
-import ColourScheme from '@/models/colour-scheme'
+import ColourScheme from '@/models/theme'
 
 const primaryColourScheme: ColourScheme = {
   backdropColour: '#222',
