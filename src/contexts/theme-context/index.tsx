@@ -13,6 +13,10 @@ const defaultThemeContextValue: ThemeContextValue = {
   setTheme: () => {throw new Error('Default setTheme should not be called')},
 }
 
+function handleSystemThemeChange() {
+  applyTheme(getTheme('system'))
+}
+
 export function useThemeState(
   storageData: StorageData,
   storageDispatch: StorageDispatch,
@@ -20,7 +24,19 @@ export function useThemeState(
   const {themeName} = storageData
 
   useEffect(
-    () => {applyTheme(getTheme(themeName))},
+    () => {
+      applyTheme(getTheme(themeName))
+
+      const themeMediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
+
+      if (themeName === 'system') {
+        themeMediaQueryList.addEventListener('change', handleSystemThemeChange)
+        return () => themeMediaQueryList.removeEventListener(
+          'change',
+          handleSystemThemeChange,
+        )
+      }
+    },
     [themeName],
   )
 
