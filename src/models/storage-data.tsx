@@ -20,7 +20,14 @@ export function deserialiseStorageData(serialisedStorageData: string): StorageDa
       throw error
     }
 
-    // TODO: Handle this better (certainly not silently)
+    // TODO: Handle this better, in a more structured way (just logging probably
+    // isn't enough).
+    console.error(
+      `Failed to deserialise stored data '${serialiseStorageData}' as JSON, ` +
+      'got a SyntaxError.',
+    )
+    console.error(error)
+
     // Invalid JSON.
     return defaultStorageData
   }
@@ -33,7 +40,11 @@ export function deserialiseStorageData(serialisedStorageData: string): StorageDa
       throw error
     }
 
-    // TODO: Handle this better (certainly not silently)
+    // TODO: Handle this better, in a more structured way (just logging probably
+    // isn't enough).
+    console.error('Failed to parse stored data')
+    console.error(error)
+
     // It wasn't a correctly structured StorageData object.
     return defaultStorageData
   }
