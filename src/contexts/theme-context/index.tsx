@@ -1,15 +1,9 @@
-import { createContext, useEffect, useState } from 'react'
-import lightTheme from '@/data/colour-schemes/primary-1'
-import oldLightTheme from '@/data/colour-schemes/primary'
-import darkTheme from '@/data/colour-schemes/dark'
+import { createContext, useEffect } from 'react'
 
-export const themes = {
-  'light': lightTheme,
-  'dark': darkTheme,
-  'old-light': oldLightTheme,
-} 
-
-type ThemeName = keyof typeof themes
+import { ThemeName, getTheme } from '@/data/themes'
+import { applyTheme } from '@/models/theme'
+import StorageData from '@/models/storage-data'
+import { StorageDispatch } from '@/hooks/use-storage/storage-reducer'
 
 export type ThemeContextValue = {
   setTheme: (themeName: ThemeName) => void,
@@ -19,22 +13,36 @@ const defaultThemeContextValue: ThemeContextValue = {
   setTheme: () => {throw new Error('Default setTheme should not be called')},
 }
 
-export function useTheme(): ThemeContextValue {
-  const [theme, setTheme] = useState(lightTheme)
+function handleSystemThemeChange() {
+  applyTheme(getTheme('system'))
+}
+
+export function useThemeState(
+  storageData: StorageData,
+  storageDispatch: StorageDispatch,
+): ThemeContextValue {
+  const {themeName} = storageData
 
   useEffect(
     () => {
-      document.documentElement.style.setProperty('--backdrop-colour', theme.backdropColour)
-      document.documentElement.style.setProperty('--primary-background-colour', theme.primaryBackgroundColour.colour)
-      document.documentElement.style.setProperty('--secondary-background-colour', theme.secondaryBackgroundColour.colour)
-      document.documentElement.style.setProperty('--button-background-colour', theme.buttonBackgroundColour.colour)
-      document.documentElement.style.setProperty('--primary-text-colour', theme.primaryBackgroundColour.aligned ? theme.alignedTextColour : theme.unalignedTextColour)
-      document.documentElement.style.setProperty('--secondary-text-colour', theme.secondaryBackgroundColour.aligned ? theme.alignedTextColour : theme.unalignedTextColour)
-      document.documentElement.style.setProperty('--button-text-colour', theme.buttonBackgroundColour.aligned ? theme.alignedTextColour : theme.unalignedTextColour)
+      applyTheme(getTheme(themeName))
+
+      const themeMediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
+
+      if (themeName === 'system') {
+        themeMediaQueryList.addEventListener('change', handleSystemThemeChange)
+        return () => themeMediaQueryList.removeEventListener(
+          'change',
+          handleSystemThemeChange,
+        )
+      }
     },
-    [theme],
+    [themeName],
   )
-  return {setTheme: (themeName) => setTheme(themes[themeName])}
+
+  return {
+    setTheme: (themeName) => storageDispatch({type: 'setTheme', themeName}),
+  }
 
 }
 const ThemeContext = createContext(defaultThemeContextValue)

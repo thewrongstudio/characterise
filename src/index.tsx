@@ -5,14 +5,17 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 
+import ThemeContext, { useThemeState } from './contexts/theme-context'
+
 import Home from './pages/home'
 import Characters from './pages/characters'
 import Character from './pages/character'
 import Settings from './pages/settings'
 import NotFound from './pages/not-found'
 
+import useStorage from './hooks/use-storage'
+
 import './styles.css'
-import ThemeContext, { useTheme } from './contexts/theme-context'
 
 const appElement = document.getElementById('app')
 if (appElement === null) {
@@ -41,9 +44,11 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  const themeContextValue = useTheme()
-  
-  return <ThemeContext.Provider value={themeContextValue}>
+  const [storageData, storageDispatch] = useStorage()
+
+  const themeState = useThemeState(storageData, storageDispatch)
+
+  return <ThemeContext.Provider value={themeState}>
     <RouterProvider router={router}/>
   </ThemeContext.Provider>
 }

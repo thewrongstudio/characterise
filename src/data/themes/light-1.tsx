@@ -1,19 +1,19 @@
-import ColourScheme from '@/models/colour-scheme'
+import ColourScheme from '@/models/theme'
 
 const primaryColourScheme: ColourScheme = {
-  backdropColour: '#ccad8e',
+  backdropColour: '#F2E9D3',
   alignedTextColour: '##462F16',
-  unalignedTextColour: '#f2c191',
+  unalignedTextColour: '#F2EBCF',
   primaryBackgroundColour: {
-    colour: '#ffd8b2',
+    colour: '#FCF2DC',
     aligned: true,
   },
   secondaryBackgroundColour: {
-    colour: '#774C2A',
+    colour: '#6B5140',
     aligned: false,
   },
   buttonBackgroundColour: {
-    colour: '#4C351E',
+    colour: '#594436',
     aligned: false,
   },
 }
