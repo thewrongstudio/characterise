@@ -1,6 +1,5 @@
 .only-human-character-sheet {
   border: 5px solid brown;
-  color: hotpink;
   display: flex;
   flex-wrap: wrap;
 }
@@ -8,10 +7,45 @@
 .only-human-character-sheet > div {
   border: 5px solid black;
   width: 50%;
+  padding: 1rem;
 }
 
 .only-human-character-sheet .right-panel {
   overflow-y: auto;
+}
+
+.only-human-character-sheet .stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+}
+
+.only-human-character-sheet .stats > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 6rem;
+  background-color: var(--secondary-background-colour);
+  border-radius: 7px;
+  color: var(--secondary-text-colour);
+}
+
+.only-human-character-sheet .stats input {
+  width: 100%;
+  text-align: center;
+  border: none;
+  font-size: 3rem;
+  background-color: transparent;
+  color: var(--secondary-text-colour);
+  margin: 1rem;
+}
+
+.only-human-character-sheet .stats input:focus {
+  outline: 1px solid var(--secondary-text-colour);
+}
+
+.only-human-character-sheet .stats label {
+  padding-top: 1rem;
 }
 
 @media screen and (max-width: 800px) {
