@@ -1,0 +1,21 @@
+.only-human-character-sheet {
+  border: 5px solid brown;
+  color: hotpink;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.only-human-character-sheet > div {
+  border: 5px solid black;
+  width: 50%;
+}
+
+.only-human-character-sheet .right-panel {
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 800px) {
+  .only-human-character-sheet > div {
+    width: 100%;
+  }
+}

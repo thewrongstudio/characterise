@@ -12,7 +12,7 @@ export default function Home() {
     <p>About Characterise here.</p>
 
     <BoxLinks linkDetails={[
-      {destination: '/character', text: 'Create Character'}, 
+      {destination: '/characters/character', text: 'Create Character'}, 
       {destination: '/characters', text: 'View Characters'},
     ]}/>
   </Page>
