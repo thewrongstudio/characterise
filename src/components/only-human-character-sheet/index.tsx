@@ -1,6 +1,36 @@
 import React, { useState } from 'react'
 
+import { OnlyHumanCharacter } from '@/models/only-human/only-human-character'
+
+import { communications } from '@/data/only-human/roles/communications'
+import { zeroSkills } from '@/data/only-human/core-skills'
+
 import './styles.css'
+
+const character: OnlyHumanCharacter = {
+  name: 'Cat',
+  stats: {
+    DEX: 2,
+    INT: 1,
+    STR: 0,
+    WIL: 1,
+  },
+  role: communications,
+  coreSkills: {
+    ...zeroSkills,
+    speed: 3,
+    persuasion: 6,
+    evasion: 3,
+    stealth: 3,
+  },
+  customSkills: [{
+    name: 'Baking',
+    stats: ['DEX', 'WIL'],
+    points: 3,
+  }],
+}
+
+console.log(character)
 
 export default function OnlyHumanCharacterSheet() {
   const [dexterity, setDexterity] = useState('0')
