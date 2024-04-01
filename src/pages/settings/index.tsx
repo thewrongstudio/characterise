@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 
-import Page from '@/components/page'
+import {Page} from '@/components/page'
 
 import './styles.css'
 import ThemeContext from '@/contexts/theme-context'
 
-export default function Settings() {
+export function Settings() {
   const themeContext = useContext(ThemeContext)
   
   return <Page className='settings'>

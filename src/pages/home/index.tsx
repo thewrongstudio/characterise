@@ -1,11 +1,11 @@
 import React from 'react'
 
-import Page from '@/components/page'
-import BoxLinks from '@/components/box-links'
+import {Page} from '@/components/page'
+import {BoxLinks} from '@/components/box-links'
 
 import './styles.css'
 
-export default function Home() {
+export function Home() {
   
   return <Page className='home'>
     <h1>Welcome to Characterise!</h1>

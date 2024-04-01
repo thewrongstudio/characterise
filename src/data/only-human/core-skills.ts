@@ -63,6 +63,20 @@ export const coreSkills = {
 
 export type OnlyHumanCoreSkillKey = keyof typeof coreSkills
 
+export const coreSkillKeys: OnlyHumanCoreSkillKey[] = [
+  'evasion',
+  'rangedAttack',
+  'speed',
+  'medicine',
+  'meleeBlock',
+  'meleeAttack',
+  'toughness',
+  'stealth',
+  'technology',
+  'insight',
+  'persuasion',
+]
+
 export const zeroSkills: Record<OnlyHumanCoreSkillKey, number> = {
   evasion: 0,
   rangedAttack: 0,

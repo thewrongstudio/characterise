@@ -3,9 +3,10 @@ import React from 'react'
 import { OnlyHumanCharacter } from '@/models/only-human/only-human-character'
 
 import { communications } from '@/data/only-human/roles/communications'
-import { zeroSkills } from '@/data/only-human/core-skills'
+import { coreSkillKeys, coreSkills, zeroSkills } from '@/data/only-human/core-skills'
 
 import './styles.css'
+import { OnlyHumanSkillWithPoints } from '@/models/only-human/only-human-attributes'
 
 const character: OnlyHumanCharacter = {
   name: 'Cat',
@@ -32,7 +33,15 @@ const character: OnlyHumanCharacter = {
 
 console.log(character)
 
-export default function OnlyHumanCharacterSheet() {
+export function OnlyHumanCharacterSheet() {
+
+  // This is character skills with points but alphabetical
+  const orderedCoreSkills: OnlyHumanSkillWithPoints[] = coreSkillKeys
+    .map(coreSkillKey => ({...coreSkills[coreSkillKey], points: character.coreSkills[coreSkillKey]}))
+    .sort((skillA, skillB) => skillA.name < skillB.name ? -1 : 1)
+
+  const orderedCustomSkills: OnlyHumanSkillWithPoints[] = character.customSkills
+    .sort((skillA, skillB) => skillA.name < skillB.name ? -1 : 1)
 
   return <div className='only-human-character-sheet'>
     <div>
@@ -57,6 +66,12 @@ export default function OnlyHumanCharacterSheet() {
           <label>WIL</label>
           <span>{character.stats.WIL}</span>
         </div>
+      </div>
+      <div>
+        {orderedCoreSkills.map(skill => <p key={skill.name}>{skill.stats[0]} {skill.stats[1]} {skill.name} {skill.points + character.stats[skill.stats[0]] + character.stats[skill.stats[1]]}</p>)}
+      </div>
+      <div>
+        {orderedCustomSkills.map(skill => <p key={skill.name}>{skill.stats[0]} {skill.stats[1]} {skill.name} {skill.points + character.stats[skill.stats[0]] + character.stats[skill.stats[1]]}</p>)}
       </div>
     </div>
 

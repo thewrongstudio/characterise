@@ -7,7 +7,7 @@ type Props = {
   linkDetails: {destination: string, text: string}[]
 }
 
-export default function BoxLinks({linkDetails}: Props) {
+export function BoxLinks({linkDetails}: Props) {
   return <div className='box-links'>
     {
       linkDetails.map(details => 
