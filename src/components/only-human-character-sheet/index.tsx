@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { OnlyHumanCharacter } from '@/models/only-human/only-human-character'
 
@@ -33,46 +33,29 @@ const character: OnlyHumanCharacter = {
 console.log(character)
 
 export default function OnlyHumanCharacterSheet() {
-  const [dexterity, setDexterity] = useState('0')
-  const [intelligence, setIntelligence] = useState('0')
-  const [strength, setStrength] = useState('0')
-  const [will, setWill] = useState('0')
-
-  console.log(strength)
 
   return <div className='only-human-character-sheet'>
     <div>
-      <input
-        className='character-name'
-      />
+      <div className='character-header'>
+        <h1>{character.name}</h1>
+        <span><em>{character.role.name}</em></span>
+      </div>
       <div className='stats'>
         <div>
           <label>DEX</label>
-          <input
-            value={dexterity}
-            onChange={event => setDexterity(event.target.value)}
-          />
+          <span>{character.stats.DEX}</span>
         </div>
         <div>
           <label>INT</label>
-          <input 
-            value={intelligence}
-            onChange={event => setIntelligence(event.target.value)}
-          />
+          <span>{character.stats.INT}</span>
         </div>
         <div>
           <label>STR</label>
-          <input 
-            value={strength}
-            onChange={event => setStrength(event.target.value)}
-          />
+          <span>{character.stats.STR}</span>
         </div>
         <div>
           <label>WIL</label>
-          <input 
-            value={will}
-            onChange={event => setWill(event.target.value)}
-          />
+          <span>{character.stats.WIL}</span>
         </div>
       </div>
     </div>

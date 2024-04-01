@@ -17,7 +17,17 @@
 .only-human-character-sheet .stats {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin: 1rem 0;
+}
+
+.only-human-character-sheet .character-header h1 {
+  margin-bottom: 0;
+}
+
+.only-human-character-sheet .character-header span {
+  margin-bottom: 1rem;
 }
 
 .only-human-character-sheet .stats > div {
@@ -30,7 +40,7 @@
   color: var(--secondary-text-colour);
 }
 
-.only-human-character-sheet .stats input {
+.only-human-character-sheet .stats span {
   width: 100%;
   text-align: center;
   border: none;
@@ -38,10 +48,6 @@
   background-color: transparent;
   color: var(--secondary-text-colour);
   margin: 1rem;
-}
-
-.only-human-character-sheet .stats input:focus {
-  outline: 1px solid var(--secondary-text-colour);
 }
 
 .only-human-character-sheet .stats label {
