@@ -21,7 +21,7 @@
 }
 
 .box-links > *:hover {
-  background-color: var(--secondary-background-colour);
-  color: var(--secondary-text-colour);
+  background-color: var(--hovered-button-background-colour);
+  color: var(--hovered-button-text-colour);
   transform: scale(1.05);
 }

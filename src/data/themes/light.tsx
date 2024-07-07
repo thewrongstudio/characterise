@@ -16,4 +16,12 @@ export const lightTheme: Theme = {
     colour: '#594436',
     aligned: false,
   },
+  hoveredButtonBackgroundColour: {
+    colour: '#6B5140',
+    aligned: false,
+  },
+  panelBackgroundColour: {
+    colour: '#F2E9D3',
+    aligned: true,
+  },
 }
