@@ -1,11 +1,9 @@
 import { ThemeName, themeNames } from '@/data/themes'
-
-import { TypeParsingError } from '.'
 import makeEnglishStringList from '@/utilities/makeEnglishStringList'
 
 export function parseThemeName(input: unknown): ThemeName {
   if (!(typeof input === 'string')) {
-    throw new TypeParsingError(
+    throw new Error(
       `expected 'typeof input' to be 'string' but got '${typeof input}'`,
     )
   }
@@ -20,7 +18,7 @@ export function parseThemeName(input: unknown): ThemeName {
     themeNames.map(themeName => `'${themeName}'`),
     'or',
   )
-  throw new TypeParsingError(
+  throw new Error(
     `expected input to be ${expected} but got '${input}'`,
   )
 }
