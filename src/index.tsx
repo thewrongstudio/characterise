@@ -7,10 +7,10 @@ import {
 
 import ThemeContext, { useThemeState } from './contexts/theme-context'
 
-import {Home} from './pages/home'
+import {HomePage} from './pages/home'
 import {Characters} from './pages/characters'
 import {Character} from './pages/character'
-import {Settings} from './pages/settings'
+import {SettingsPage} from './pages/settings'
 import {NotFound} from './pages/not-found'
 
 import useStorage from './hooks/use-storage'
@@ -26,7 +26,7 @@ const root = createRoot(appElement)
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home/>,
+    element: <HomePage/>,
     errorElement: <NotFound/>,
   },
   {
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/settings',
-    element: <Settings/>,
+    element: <SettingsPage/>,
   },
   {
     path: '/characters/:id',

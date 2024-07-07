@@ -1,3 +1,5 @@
+// TODO: Fix oxford comma. It shouldn't appear in lists of two.
+
 export default function makeEnglishStringList(
   strings: string[],
   joiningWord: 'and' | 'or',

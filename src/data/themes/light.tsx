@@ -1,6 +1,6 @@
-import ColourScheme from '@/models/theme'
+import { Theme } from '@/models/theme'
 
-const primaryColourScheme: ColourScheme = {
+export const lightTheme: Theme = {
   backdropColour: '#F2E9D3',
   alignedTextColour: '##462F16',
   unalignedTextColour: '#F2EBCF',
@@ -17,5 +17,3 @@ const primaryColourScheme: ColourScheme = {
     aligned: false,
   },
 }
-
-export default primaryColourScheme

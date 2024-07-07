@@ -5,7 +5,7 @@
   justify-content: space-around;
 }
 
-.box-links a {
+.box-links > * {
   display: flex;
   height: 10rem;
   width: 15rem;
@@ -17,9 +17,10 @@
   border-radius: 8px;
   transition: transform .3s;
   box-shadow: 0px 5px 10px rgba(107, 81, 64, 0.10);
+  cursor: pointer;
 }
 
-.box-links a:hover {
+.box-links > *:hover {
   background-color: var(--secondary-background-colour);
   color: var(--secondary-text-colour);
   transform: scale(1.05);

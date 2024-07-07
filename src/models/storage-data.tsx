@@ -1,5 +1,4 @@
 import { ThemeName } from '@/data/themes'
-import { TypeParsingError } from '@/type-parsing'
 
 import parseStorageData from '@/type-parsing/parse-storage-data'
 
@@ -36,10 +35,6 @@ export function deserialiseStorageData(serialisedStorageData: string): StorageDa
   try {
     storageData = parseStorageData(raw)
   } catch (error) {
-    if (!(error instanceof TypeParsingError)) {
-      throw error
-    }
-
     // TODO: Handle this better, in a more structured way (just logging probably
     // isn't enough).
     console.error('Failed to parse stored data')

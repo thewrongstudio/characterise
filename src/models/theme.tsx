@@ -3,7 +3,7 @@ type BackgroundColour = {
   aligned: boolean
 }
 
-export default interface Theme {
+export interface Theme {
   backdropColour: string
   alignedTextColour: string
   unalignedTextColour: string

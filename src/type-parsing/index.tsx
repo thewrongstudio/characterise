@@ -1,1 +1,1 @@
-export class TypeParsingError extends Error {}
+export * from './parse-storage-data'
