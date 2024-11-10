@@ -7,6 +7,7 @@ import { coreSkillKeys, coreSkills, zeroSkills } from '@/data/only-human/core-sk
 import { Tabs } from '@/components/tabs'
 
 import './styles.css'
+import { Modal } from '../modal'
 
 const character: OnlyHumanCharacter = {
   name: 'Cat',
@@ -48,6 +49,7 @@ export function OnlyHumanCharacterSheet() {
         <h1>{character.name}</h1>
         <span><em>{character.role.name}</em></span>
       </div>
+      <Modal/>
       <div className='stats'>
         <div>
           <label>DEX</label>
