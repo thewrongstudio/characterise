@@ -23,3 +23,15 @@
 - See if I can ensure that duplicate css files (say, for multiple instances of the same component) aren't included multiple times. I think this is the default, but it would be good to check.
 - See if I can have pull requests optionally deploy to a different dev domain.
 - Consider React.StrictMode
+
+## character sheet
+
+- modal system
+- tabs system
+- editing
+  - editing stats, via point allocation, 4 points, max 2 each
+  - editing class, pick from a list of classes
+  - editing skills, 6 point go into role skills, 12 points go in all other skills, 6 points max per skill
+- hit points
+- inventory
+  - armour, weapons and items
