@@ -1,27 +1,43 @@
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 
 import './styles.css'
 
-export function Modal() {
+type Props = {
+  onClose: () => void
+  open: boolean
+}
 
+export function Modal({open, onClose}: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   const show = useCallback(() => dialogRef.current?.showModal(), [])
   const hide = useCallback(() => dialogRef.current?.close(), [])
 
-  const handleDialogClick = (event: React.MouseEvent<HTMLDialogElement, MouseEvent>) => {
-    if (event.target instanceof HTMLDialogElement) {
+  useEffect(() => {
+    if (open) { 
+      show()
+    } else {
       hide()
     }
-  } 
+  }, [hide, open, show])
 
-  return <div>
-    <button onClick={() => show()}>open</button>
-    <dialog ref={dialogRef} onClick={handleDialogClick}>
-      <div>
-        <h1>This is a modal</h1>
-        <p>hello!</p>
-      </div>
-    </dialog>
-  </div>
+  const handleDialogClick = useCallback((event: React.MouseEvent<HTMLDialogElement, MouseEvent>) => {
+    if (event.target instanceof HTMLDialogElement) {
+      onClose()
+    }
+  }, [onClose])
+
+  const handleDialogKeyDown = useCallback((event: React.KeyboardEvent<HTMLDialogElement>) => {
+    if (event.key == 'Escape') {
+      event.preventDefault()
+      onClose()
+    }
+  }, [onClose])
+
+  return <dialog ref={dialogRef} onClick={handleDialogClick} onKeyDown={handleDialogKeyDown}>
+    <div>
+      <h1>This is a modal</h1>
+      <p>hello!</p>
+    </div>
+  </dialog>
 }

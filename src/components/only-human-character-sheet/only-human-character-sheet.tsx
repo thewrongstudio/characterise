@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { OnlyHumanCharacter } from '@/models/only-human/only-human-character'
 import { OnlyHumanSkillWithPoints } from '@/models/only-human/only-human-attributes'
@@ -43,14 +43,16 @@ export function OnlyHumanCharacterSheet() {
   const orderedCustomSkills: OnlyHumanSkillWithPoints[] = character.customSkills
     .sort((skillA, skillB) => skillA.name < skillB.name ? -1 : 1)
 
+  const [statsModalOpen, setStatsModalOpen] = useState(false)
+
   return <div className='only-human-character-sheet'>
+    <Modal open={statsModalOpen} onClose={() => setStatsModalOpen(false)}/>
     <div>
       <div className='character-header'>
         <h1>{character.name}</h1>
         <span><em>{character.role.name}</em></span>
       </div>
-      <Modal/>
-      <div className='stats'>
+      <div className='stats' onClick={() => setStatsModalOpen(true)}>
         <div>
           <label>DEX</label>
           <span>{character.stats.DEX}</span>
