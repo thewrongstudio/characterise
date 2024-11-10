@@ -24,7 +24,7 @@
 - See if I can have pull requests optionally deploy to a different dev domain.
 - Consider React.StrictMode
 
-## character sheet
+## Character Sheet
 
 - modal system
 - tabs system
