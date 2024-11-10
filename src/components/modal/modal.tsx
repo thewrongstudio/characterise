@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react'
 
 import './styles.css'
+import { Button } from '../button'
 
 type Props = {
   onClose: () => void
@@ -38,6 +39,9 @@ export function Modal({open, onClose}: Props) {
     <div>
       <h1>This is a modal</h1>
       <p>hello!</p>
+      <Button>
+        close
+      </Button>
     </div>
   </dialog>
 }

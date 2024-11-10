@@ -26,6 +26,7 @@
 
 ## Character Sheet
 
+- fix tab de-selecting when modal opens
 - modal system
 - tabs system
 - editing
