@@ -4,44 +4,42 @@ import './styles.css'
 import { Button } from '../button'
 
 type Props = {
-  onClose: () => void
-  open: boolean
+  setIsOpen: (newIsOpen: boolean) => void
+  isOpen: boolean
 }
 
-export function Modal({open, onClose}: Props) {
+export function Modal({isOpen, setIsOpen}: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   const show = useCallback(() => dialogRef.current?.showModal(), [])
   const hide = useCallback(() => dialogRef.current?.close(), [])
 
   useEffect(() => {
-    if (open) { 
+    if (isOpen) { 
       show()
     } else {
       hide()
     }
-  }, [hide, open, show])
+  }, [isOpen, hide, show])
 
   const handleDialogClick = useCallback((event: React.MouseEvent<HTMLDialogElement, MouseEvent>) => {
     if (event.target instanceof HTMLDialogElement) {
-      onClose()
+      setIsOpen(false)
     }
-  }, [onClose])
+  }, [setIsOpen])
 
   const handleDialogKeyDown = useCallback((event: React.KeyboardEvent<HTMLDialogElement>) => {
     if (event.key == 'Escape') {
       event.preventDefault()
-      onClose()
+      setIsOpen(false)
     }
-  }, [onClose])
+  }, [setIsOpen])
 
   return <dialog ref={dialogRef} onClick={handleDialogClick} onKeyDown={handleDialogKeyDown}>
     <div>
       <h1>This is a modal</h1>
       <p>hello!</p>
-      <Button>
-        close
-      </Button>
+      <Button onClick={() => setIsOpen(false)}>Close</Button>
     </div>
   </dialog>
 }

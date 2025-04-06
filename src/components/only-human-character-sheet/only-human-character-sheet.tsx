@@ -46,7 +46,7 @@ export function OnlyHumanCharacterSheet() {
   const [statsModalOpen, setStatsModalOpen] = useState(false)
 
   return <div className='only-human-character-sheet'>
-    <Modal open={statsModalOpen} onClose={() => setStatsModalOpen(false)}/>
+    <Modal isOpen={statsModalOpen} setIsOpen={setStatsModalOpen}/>
     <div>
       <div className='character-header'>
         <h1>{character.name}</h1>
