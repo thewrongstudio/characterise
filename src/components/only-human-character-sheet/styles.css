@@ -22,6 +22,8 @@
   background-color: var(--panel-background-colour);
   padding: 1rem;
   cursor: pointer;
+  border: none;
+  width: 100%;
 }
 
 .only-human-character-sheet .character-header h1 {

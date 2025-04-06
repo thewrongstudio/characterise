@@ -11,6 +11,7 @@
 - Support changes in the storage model. Versioned or something.
 - If storage data cannot be deserialised, the old one should be saved in a different local storage key before the actually-used key is over-written.
 - Properly check if localStorage is supported.
+- This is really an only-human thing rather than a characterise thing, but "stats" -> "attributes" maybe? Stats is often a general term for all numerical descriptions of the character. Having it explicitly be only four specific numbers, and not include skills, might be confusing for people.
 
 - Tests.
 

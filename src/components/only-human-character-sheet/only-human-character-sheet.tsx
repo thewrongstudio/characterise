@@ -52,7 +52,7 @@ export function OnlyHumanCharacterSheet() {
         <h1>{character.name}</h1>
         <span><em>{character.role.name}</em></span>
       </div>
-      <div className='stats' onClick={() => setStatsModalOpen(true)}>
+      <button className='stats' onClick={() => setStatsModalOpen(true)}>
         <div>
           <label>DEX</label>
           <span>{character.stats.DEX}</span>
@@ -69,7 +69,7 @@ export function OnlyHumanCharacterSheet() {
           <label>WIL</label>
           <span>{character.stats.WIL}</span>
         </div>
-      </div>
+      </button>
       <div>
         {orderedCoreSkills.map(skill => <p key={skill.name}>{skill.stats[0]} {skill.stats[1]} {skill.name} {skill.points + character.stats[skill.stats[0]] + character.stats[skill.stats[1]]}</p>)}
       </div>
