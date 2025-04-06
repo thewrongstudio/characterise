@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 
-import { OnlyHumanCharacter } from '@/models/only-human/only-human-character'
-import { OnlyHumanSkillWithPoints } from '@/models/only-human/only-human-attributes'
 import { communications } from '@/data/only-human/roles/communications'
 import { coreSkillKeys, coreSkills, zeroSkills } from '@/data/only-human/core-skills'
+
+import { OnlyHumanCharacter } from '@/models/only-human/only-human-character'
+import { OnlyHumanSkillWithPoints } from '@/models/only-human/only-human-attributes'
+
 import { Tabs } from '@/components/tabs'
 import { Button } from '@/components/button'
 import { Modal } from '@/components/modal'
+import { NumberInput } from '@/components/number-input'
 
 import './styles.css'
 
@@ -51,6 +54,7 @@ export function OnlyHumanCharacterSheet() {
       <Button onClick={() => setStatsModalIsOpen(false)}>Close</Button>
     </Modal>
     <div>
+      <NumberInput value={0} minimum={0} maximum={4}></NumberInput>
       <div className='character-header'>
         <h1>{character.name}</h1>
         <span><em>{character.role.name}</em></span>
