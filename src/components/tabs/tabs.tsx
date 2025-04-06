@@ -20,7 +20,7 @@ export function Tabs({tabs}: Props) {
         (tab) => <button
           key={tab.key}
           onClick={() => setSelected(tab)}
-          data-selected={tab===selected}
+          data-selected={tab.key===selected.key}
         >
           {tab.name}
         </button>,
