@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react'
+import React, { ReactNode, useCallback, useEffect, useRef } from 'react'
 
 import './styles.css'
 import { Button } from '../button'
@@ -6,9 +6,10 @@ import { Button } from '../button'
 type Props = {
   setIsOpen: (newIsOpen: boolean) => void
   isOpen: boolean
+  children?: ReactNode
 }
 
-export function Modal({isOpen, setIsOpen}: Props) {
+export function Modal({isOpen, setIsOpen, children}: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   const show = useCallback(() => dialogRef.current?.showModal(), [])
@@ -36,10 +37,6 @@ export function Modal({isOpen, setIsOpen}: Props) {
   }, [setIsOpen])
 
   return <dialog ref={dialogRef} onClick={handleDialogClick} onKeyDown={handleDialogKeyDown}>
-    <div>
-      <h1>This is a modal</h1>
-      <p>hello!</p>
-      <Button onClick={() => setIsOpen(false)}>Close</Button>
-    </div>
+    {children}
   </dialog>
 }

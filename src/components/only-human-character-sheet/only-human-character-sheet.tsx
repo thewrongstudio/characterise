@@ -5,9 +5,10 @@ import { OnlyHumanSkillWithPoints } from '@/models/only-human/only-human-attribu
 import { communications } from '@/data/only-human/roles/communications'
 import { coreSkillKeys, coreSkills, zeroSkills } from '@/data/only-human/core-skills'
 import { Tabs } from '@/components/tabs'
+import { Button } from '@/components/button'
+import { Modal } from '@/components/modal'
 
 import './styles.css'
-import { Modal } from '../modal'
 
 const character: OnlyHumanCharacter = {
   name: 'Cat',
@@ -32,8 +33,6 @@ const character: OnlyHumanCharacter = {
   }],
 }
 
-console.log(character)
-
 export function OnlyHumanCharacterSheet() {
   // This is character skills with points but alphabetical
   const orderedCoreSkills: OnlyHumanSkillWithPoints[] = coreSkillKeys
@@ -43,16 +42,20 @@ export function OnlyHumanCharacterSheet() {
   const orderedCustomSkills: OnlyHumanSkillWithPoints[] = character.customSkills
     .sort((skillA, skillB) => skillA.name < skillB.name ? -1 : 1)
 
-  const [statsModalOpen, setStatsModalOpen] = useState(false)
+  const [statsModalIsOpen, setStatsModalIsOpen] = useState(false)
 
   return <div className='only-human-character-sheet'>
-    <Modal isOpen={statsModalOpen} setIsOpen={setStatsModalOpen}/>
+    <Modal isOpen={statsModalIsOpen} setIsOpen={setStatsModalIsOpen}>
+      <h1>This is a modal</h1>
+      <p>hello!</p>
+      <Button onClick={() => setStatsModalIsOpen(false)}>Close</Button>
+    </Modal>
     <div>
       <div className='character-header'>
         <h1>{character.name}</h1>
         <span><em>{character.role.name}</em></span>
       </div>
-      <button className='stats' onClick={() => setStatsModalOpen(true)}>
+      <button className='stats' onClick={() => setStatsModalIsOpen(true)}>
         <div>
           <label>DEX</label>
           <span>{character.stats.DEX}</span>
