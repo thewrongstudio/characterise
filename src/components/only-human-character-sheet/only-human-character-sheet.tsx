@@ -7,11 +7,11 @@ import { OnlyHumanCharacter } from '@/models/only-human/only-human-character'
 import { OnlyHumanSkillWithPoints } from '@/models/only-human/only-human-attributes'
 
 import { Tabs } from '@/components/tabs'
-import { Button } from '@/components/button'
 import { Modal } from '@/components/modal'
 import { NumberInput } from '@/components/number-input'
 
 import './styles.css'
+import { OnlyHumanStatsModal } from '../only-human-stats-modal'
 
 const character: OnlyHumanCharacter = {
   name: 'Cat',
@@ -49,9 +49,10 @@ export function OnlyHumanCharacterSheet() {
 
   return <div className='only-human-character-sheet'>
     <Modal isOpen={statsModalIsOpen} setIsOpen={setStatsModalIsOpen}>
-      <h1>This is a modal</h1>
-      <p>hello!</p>
-      <Button onClick={() => setStatsModalIsOpen(false)}>Close</Button>
+      <OnlyHumanStatsModal
+        close={() => setStatsModalIsOpen(false)}
+        stats={character.stats}
+      />
     </Modal>
     <div>
       <NumberInput value={0} minimum={0} maximum={4}></NumberInput>

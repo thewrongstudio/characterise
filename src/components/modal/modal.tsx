@@ -1,9 +1,8 @@
 import React, { ReactNode, useCallback, useEffect, useRef } from 'react'
 
 import './styles.css'
-import { Button } from '../button'
 
-type Props = {
+export type Props = {
   setIsOpen: (newIsOpen: boolean) => void
   isOpen: boolean
   children?: ReactNode
